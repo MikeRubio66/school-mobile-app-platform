@@ -1,0 +1,17 @@
+import { View, ScrollView } from "react-native";
+import CourseCard from "../components/CourseCard";
+import courses from "../data/courses";
+
+export default function CoursesScreen({ navigation }) {
+  return (
+    <ScrollView style={{ padding: 20 }}>
+      {courses.map((course) => (
+        <CourseCard
+          key={course.id}
+          course={course}
+          onPress={() => navigation.navigate("Detalles", { course })}
+        />
+      ))}
+    </ScrollView>
+  );
+}
